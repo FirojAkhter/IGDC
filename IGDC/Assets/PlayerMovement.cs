@@ -29,27 +29,27 @@ public class PlayerMovement : MonoBehaviour {
          if (Input.GetKey(KeyCode.W))
          {
              transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), rot_speed * Time.deltaTime);
-             if(Vector3.Angle(ref_target.forward,transform.forward)<= (0+2))
+            // if(Vector3.Angle(ref_target.forward,transform.forward)<= (0+2))
                transform.Translate(Vector3.forward*speed*Time.deltaTime);
          }
          else if(Input.GetKey(KeyCode.S))
          {
              transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-dir), rot_speed * Time.deltaTime);
-             if (Vector3.Angle(ref_target.forward, transform.forward) >= (180 - 2))
+           //  if (Vector3.Angle(ref_target.forward, transform.forward) >= (180 - 2))
                  transform.Translate(Vector3.forward *speed * Time.deltaTime);
          }
          else if(Input.GetKey(KeyCode.A))
          {
             Vector3 dir2 = -ref_target.right;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir2), rot_speed * Time.deltaTime);
-            if (Vector3.Angle(-ref_target.right, transform.forward) <= (0+2))
+          //  if (Vector3.Angle(-ref_target.right, transform.forward) <= (0+2))
                  transform.Translate(Vector3.forward* speed * Time.deltaTime);
          }
          else if (Input.GetKey(KeyCode.D))
          {
             Vector3 dir2 = ref_target.right;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir2), rot_speed * Time.deltaTime);
-            if (Vector3.Angle(ref_target.right, transform.forward) <= (0+2))
+         //   if (Vector3.Angle(ref_target.right, transform.forward) <= (0+2))
                 transform.Translate(Vector3.forward  * speed * Time.deltaTime);
          }
         #endregion imp1
