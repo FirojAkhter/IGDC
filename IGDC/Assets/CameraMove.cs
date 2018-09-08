@@ -12,7 +12,7 @@ public class CameraMove : MonoBehaviour {
     float mouseX;
     float mouseY;
     float rotX;
-   public  float rotY;
+    float rotY;
 	// Use this for initialization
 	void Start () {
         Vector3 rot = transform.localRotation.eulerAngles;
@@ -31,7 +31,7 @@ public class CameraMove : MonoBehaviour {
         mouseY = y_rot;
         rotX += mouseX * sensitivityX *Time.deltaTime;
         rotY += mouseY * sensitivityY * Time.deltaTime;
-        rotX = Mathf.Clamp(rotX, -angle+20f, angle);
+        rotX = Mathf.Clamp(rotX, angle-20f, angle);
         Quaternion rotation = Quaternion.Euler(rotX, rotY, transform.localRotation.z);
         transform.localRotation = rotation;
      
