@@ -11,10 +11,10 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private float rot_speed;
   //  public float rotY;
-    private void Update()
+    private void FixedUpdate()
     {
       
-        Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
+       
         Vector3 dir = ref_target.forward;
         //Debug.Log(dir);
         Debug.DrawRay(transform.position, createvector(45, ref_target.forward) * 5, Color.magenta);
