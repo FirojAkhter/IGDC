@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour {
     private float speed;
     [SerializeField]
     private Transform ref_target;
+	public Material changer;
+	public static int index=1;
+	public Solver sl;
  
     [SerializeField]
     private float rot_speed;
@@ -92,4 +95,20 @@ public class PlayerMovement : MonoBehaviour {
         return ans.normalized;
        
     }
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.tag == "Button") {
+			if (col.gameObject.GetComponent<Puzzle> ().number == index) {
+				col.gameObject.GetComponent<MeshRenderer> ().material = changer;
+				col.gameObject.GetComponent<BoxCollider> ().enabled = false;
+				index++;
+			}
+		 else {
+			sl.Reset ();
+			index = 1;
+		}
+	}
+
+}
 }
