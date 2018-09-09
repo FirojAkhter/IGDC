@@ -8,7 +8,9 @@ public class CameraMove : MonoBehaviour {
     [SerializeField]
     private float sensitivityY;
     [SerializeField]
-    float angle;
+    float min_angle;
+    [SerializeField]
+    float max_angle;
     float mouseX;
     float mouseY;
     float rotX;
@@ -31,7 +33,7 @@ public class CameraMove : MonoBehaviour {
         mouseY = y_rot;
         rotX += mouseX * sensitivityX *Time.deltaTime;
         rotY += mouseY * sensitivityY * Time.deltaTime;
-        rotX = Mathf.Clamp(rotX, angle-20f, angle);
+        rotX = Mathf.Clamp(rotX, min_angle, max_angle);
         Quaternion rotation = Quaternion.Euler(rotX, rotY, transform.localRotation.z);
         transform.localRotation = rotation;
      
