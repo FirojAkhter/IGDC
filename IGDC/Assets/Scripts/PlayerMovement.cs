@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour {
 	public Material changer;
 	public static int index=1;
 	public Solver sl;
+    
+
  
     [SerializeField]
     private float rot_speed;
+
+    
   //  public float rotY;
     private void FixedUpdate()
     {
