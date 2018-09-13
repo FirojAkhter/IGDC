@@ -26,7 +26,7 @@ public class ColorWheel : MonoBehaviour {
 			//obj.transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler(new Vector3(90f,transform.rotation.y,transform.rotation.z)), Time.time*0.1f);
 			//StartCoroutine(Rot());
 			counter=false;
-			StartCoroutine (Rotate (Vector3.up, 90, 1));
+			StartCoroutine (Rotate (Vector3.forward, 90, 1));  // Change the axis here as required.
 
 
 		}
