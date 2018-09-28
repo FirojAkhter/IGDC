@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Button
   - UpDown
+  - RightBase
+  - pole
+  - Generator
+  - ActivePole
   layers:
   - Default
   - TransparentFX
@@ -19,7 +23,7 @@ TagManager:
   - PickUpObj
   - Grid
   - Box
-  - 
+  - Pipes
   - 
   - 
   - 

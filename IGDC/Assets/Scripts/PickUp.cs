@@ -10,8 +10,8 @@ public class PickUp : MonoBehaviour {
     RaycastHit hit;
     [SerializeField]
     private float offset;
-    [SerializeField]
-    private float lerp_speed;
+ //   [SerializeField]
+ //   private float lerp_speed;
     public bool picked;
     public GameObject t;
 	// Use this for initialization
@@ -29,8 +29,10 @@ public class PickUp : MonoBehaviour {
             if(Input.GetKeyDown(KeyCode.E) )
             {
                 t = hit.collider.transform.gameObject;
-                Debug.Log("Entering Pick");
+               Debug.Log("Entering Pick");
                 hit.transform.GetComponent<Rigidbody>().isKinematic = true;
+                hit.transform.GetComponent<PlaceInGrid>().placed = false;
+                hit.transform.tag = "pole";
                 PickUpObject(hit.collider.transform);
                 picked = true;
             }
@@ -38,12 +40,14 @@ public class PickUp : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.E) && picked)
         {
+            Debug.Log("Entering Place 1st loop");
 
-            t.GetComponent<PlaceInGrid>().Action(offset);
-            picked = false;
-            Debug.Log("Entering Place");
-            t = null;
-
+            if (t.GetComponent<PlaceInGrid>().Action())
+            {
+                picked = false;
+               Debug.Log("Entering Place");
+                t = null;
+            }
 
         }
 
