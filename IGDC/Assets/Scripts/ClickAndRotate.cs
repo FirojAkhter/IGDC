@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickAndRotate : MonoBehaviour {
-    [SerializeField]
-    private float rot_speed;
+    
     [SerializeField]
     private float slow_factor;
     public float angle;
@@ -48,10 +47,5 @@ public class ClickAndRotate : MonoBehaviour {
         clicked = false;
 	}
 
-		Vector3  createvector(float angle , Vector3 v)
-		{
-			Vector3 ans = new Vector3(v.x * Mathf.Cos(angle) + v.y* Mathf.Sin(angle ),  -1 * v.x * Mathf.Sin(angle ) + v.y* Mathf.Cos(angle ),0);
-			return ans.normalized;
-
-		}
+	
 }

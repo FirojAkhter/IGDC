@@ -153,11 +153,6 @@ MonoBehaviour:
   pressed: 0
   v_cam: {fileID: 569228707}
   persist: 0
-  v_cam_pos: {x: -0.82, y: 24.177, z: 7.42}
-  v_cam_rot: {x: 1.365, y: 179.24, z: 0}
-  main_cam_pos: {x: 0, y: 0, z: 0}
-  lerp_speed: 0.1
-  rot_lerp: 0.1
 --- !u!23 &29062444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -925,13 +920,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1627893350}
+  t: {fileID: 919014964}
   g:
   - {fileID: 1148103931}
   - {fileID: 287352097}
   m: []
   angle_check:
-  - 0
+  - 90
+  - 270
   angle: 000000005a000000b40000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
@@ -947,7 +943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!65 &125789015
@@ -1015,6 +1010,7 @@ GameObject:
   - component: {fileID: 150575329}
   - component: {fileID: 150575328}
   - component: {fileID: 150575327}
+  - component: {fileID: 150575330}
   m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
@@ -1028,10 +1024,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150575325}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.55, y: 0.73, z: -7.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1549139555}
   m_Father: {fileID: 1068762008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1122,6 +1119,31 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &150575330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150575325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 13
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
+  m_Lens:
+    FieldOfView: 60
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+  m_ComponentOwner: {fileID: 1549139555}
 --- !u!1 &174113683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &239015223
@@ -1450,17 +1471,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1643755821}
+  t: {fileID: 1716581880}
   g:
   - {fileID: 84670789}
   - {fileID: 84670788}
   m: []
   angle_check:
   - 0
-  - 90
   - 180
-  - 270
-  angle: 00000000b4000000
+  angle: 5a000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -1740,10 +1759,13 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 0}
     value: {fileID: 0}
+  - key: {fileID: 114431723747995106, guid: 2e989f43b40bf7a4a85f83b3fa19c24e, type: 2}
+    value: {fileID: 1627569819}
   m_ExposedReferences:
     m_References:
     - 8d23ea3d3aba1334bbd939f3951ebdcf: {fileID: 1934168449}
     - 941ffa8926ac59f46b70abf36e36ecba: {fileID: 0}
+    - 8cbaf29fb73c69f4792b499600c6605d: {fileID: 1627569821}
 --- !u!4 &347551693
 Transform:
   m_ObjectHideFlags: 0
@@ -1878,7 +1900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &352524356
@@ -1892,14 +1913,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 793911849}
   g:
   - {fileID: 1549050280}
   m: []
   angle_check:
-  - 0
-  - 180
-  angle: 00000000
+  - 270
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -2185,6 +2205,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 374831780}
   m_Mesh: {fileID: 4300010, guid: 95a1a9f7bade981408e9871597ed8e8a, type: 3}
+--- !u!1 &374897969
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 374897970}
+  - component: {fileID: 374897972}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &374897970
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 374897969}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1627569820}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &374897972
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 374897969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &386109733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,7 +2500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &441022360
@@ -2454,17 +2513,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1643755821}
+  t: {fileID: 1478111034}
   g:
   - {fileID: 1988715201}
   - {fileID: 1988715200}
   m: []
   angle_check:
-  - 0
   - 90
   - 180
-  - 270
-  angle: 00000000b4000000
+  angle: b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -2567,7 +2624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &444374164
@@ -2581,14 +2637,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 1442356038}
   g:
   - {fileID: 2114516575}
   m: []
   angle_check:
   - 0
-  - 180
-  angle: 00000000
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -2748,7 +2803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &458186149
@@ -2762,14 +2816,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 1226628306}
   g:
   - {fileID: 231176612}
   m: []
   angle_check:
-  - 0
+  - 90
   - 180
-  angle: 00000000
+  angle: 5a0000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -2858,7 +2912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &459195001
@@ -2872,17 +2925,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1643755821}
+  t: {fileID: 493001550}
   g:
   - {fileID: 1839969812}
   - {fileID: 301764988}
   m: []
   angle_check:
-  - 0
-  - 90
   - 180
-  - 270
-  angle: 00000000b4000000
+  angle: 5a0000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -3067,7 +3117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &493001552
@@ -3081,14 +3130,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 0}
+  t: {fileID: 352524354}
   g:
   - {fileID: 1887735409}
   - {fileID: 1891329884}
   - {fileID: 1044084539}
   m: []
-  angle_check: []
-  angle: 
+  angle_check:
+  - 0
+  - 180
+  angle: b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -3348,7 +3399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &569228708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3368,7 +3419,7 @@ MonoBehaviour:
   m_DefaultBlend:
     m_Style: 1
     m_Time: 2
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: eecf75f9def0a9f46abf509a72c3dabc, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3400,8 +3451,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 100
-  field of view: 40
+  far clip plane: 5000
+  field of view: 60
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -3425,8 +3476,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569228707}
-  m_LocalRotation: {x: 0.0000005366312, y: 0.9998414, z: -0.000030129811, w: 0.017810436}
-  m_LocalPosition: {x: -1.1788449, y: 23.750002, z: 8.362968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 0.8328845}
+  m_LocalPosition: {x: 3.4544077, y: 22.44521, z: -6.1808825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3553,7 +3604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &603324996
@@ -3567,14 +3617,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 0}
+  t: {fileID: 1954897721}
   g:
   - {fileID: 1971300510}
   - {fileID: 613356536}
   - {fileID: 1437715286}
   m: []
-  angle_check: []
-  angle: 
+  angle_check:
+  - 0
+  - 180
+  angle: 5a000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -4019,7 +4071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &664197772
@@ -4033,14 +4084,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 0}
+  t: {fileID: 444374162}
   g:
   - {fileID: 374831780}
   - {fileID: 227280351}
   - {fileID: 584695553}
   m: []
-  angle_check: []
-  angle: 
+  angle_check:
+  - 0
+  - 180
+  angle: 5a000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -4143,7 +4196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &664897087
@@ -4157,14 +4209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 1226628306}
   g:
   - {fileID: 217641109}
   m: []
   angle_check:
-  - 0
-  - 180
-  angle: 00000000
+  - 90
+  angle: 5a0000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -4343,7 +4394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &671072307
@@ -4357,14 +4407,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 1138600153}
   g:
   - {fileID: 1402240512}
   m: []
   angle_check:
   - 0
+  - 90
   - 180
-  angle: 00000000
+  - 270
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -4894,7 +4946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &793911851
@@ -4908,14 +4959,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 0}
+  t: {fileID: 1643755821}
   g:
   - {fileID: 743677703}
   - {fileID: 1855237710}
   - {fileID: 1101065110}
   m: []
-  angle_check: []
-  angle: 
+  angle_check:
+  - 0
+  - 90
+  - 180
+  - 270
+  angle: 0e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -5295,7 +5350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &919014966
@@ -5309,14 +5363,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 239015221}
   g:
   - {fileID: 481137514}
   m: []
   angle_check:
-  - 0
-  - 180
-  angle: 00000000
+  - 90
+  angle: 5a0000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -5400,6 +5453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1934168447}
+  - {fileID: 1627569820}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5448,7 +5502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &926313611
@@ -5467,9 +5520,9 @@ MonoBehaviour:
   - {fileID: 1333977324}
   m: []
   angle_check:
-  - 0
-  - 180
-  angle: 00000000
+  - 90
+  - 270
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -5954,8 +6007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81d2831f42bd8542ab940ecd598c365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityX: 10
-  sensitivityY: 10
+  sensitivityX: 100
+  sensitivityY: 100
   min_angle: -50
   max_angle: 50
 --- !u!1 &1100993121
@@ -6227,7 +6280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1124417030
@@ -6298,7 +6350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1125795984
@@ -6312,14 +6363,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 125789012}
   g:
   - {fileID: 705816035}
   m: []
   angle_check:
   - 0
+  - 90
   - 180
-  angle: 00000000
+  - 270
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -6422,13 +6475,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1627893350}
+  t: {fileID: 1774522350}
   g:
   - {fileID: 1855489363}
   - {fileID: 1560607778}
   m: []
   angle_check:
   - 0
+  - 180
   angle: 000000005a000000b40000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
@@ -6444,7 +6498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!65 &1138600156
@@ -6774,7 +6827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1226628308
@@ -6788,17 +6840,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1643755821}
+  t: {fileID: 1747039188}
   g:
   - {fileID: 2102173292}
   - {fileID: 2102173291}
   m: []
   angle_check:
   - 0
-  - 90
   - 180
-  - 270
-  angle: 00000000b4000000
+  angle: 5a000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -7789,7 +7839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1410245214
@@ -7803,14 +7852,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 0}
+  t: {fileID: 664897085}
   g:
   - {fileID: 1434265079}
   - {fileID: 1518791016}
   - {fileID: 1450624110}
   m: []
-  angle_check: []
-  angle: 
+  angle_check:
+  - 90
+  - 270
+  angle: 0e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -8141,7 +8192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1442356040
@@ -8155,14 +8205,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 0}
+  t: {fileID: 603324994}
   g:
   - {fileID: 1896691213}
   - {fileID: 1893234445}
   - {fileID: 1430419103}
   m: []
-  angle_check: []
-  angle: 
+  angle_check:
+  - 180
+  angle: 000000005a000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -8442,7 +8493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1478111036
@@ -8456,14 +8506,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 0}
+  t: {fileID: 926313609}
   g:
   - {fileID: 1290249493}
   - {fileID: 1653699942}
   - {fileID: 351356025}
   m: []
-  angle_check: []
-  angle: 
+  angle_check:
+  - 0
+  - 180
+  angle: 5a000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -8786,6 +8838,58 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 446232fda691bac40a0ab0d981ce6c1f,
     type: 3}
   m_PrefabInternal: {fileID: 1549050278}
+--- !u!1 &1549139554
+GameObject:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1549139555}
+  - component: {fileID: 1549139557}
+  - component: {fileID: 1549139556}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1549139555
+Transform:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1549139554}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.9293263, y: -19.033468, z: 5.2413692}
+  m_LocalScale: {x: 0.8479969, y: 0.8479969, z: 0.8479969}
+  m_Children: []
+  m_Father: {fileID: 150575326}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1549139556
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1549139554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1549139557
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1549139554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1560607778
 GameObject:
   m_ObjectHideFlags: 0
@@ -9138,6 +9242,61 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1611062462}
   m_Mesh: {fileID: 4300000, guid: 89d09fb07b1996e488512f888de7337d, type: 3}
+--- !u!1 &1627569819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627569820}
+  - component: {fileID: 1627569821}
+  m_Layer: 0
+  m_Name: CM vcam2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1627569820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1627569819}
+  m_LocalRotation: {x: -0.0000009601389, y: 0.99999326, z: 0.0036651047, w: 0.0002619659}
+  m_LocalPosition: {x: -3.3, y: 4.87, z: 6.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 374897970}
+  m_Father: {fileID: 919996407}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.42, y: 179.97, z: 0}
+--- !u!114 &1627569821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1627569819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 15
+  m_LookAt: {fileID: 987984948}
+  m_Follow: {fileID: 0}
+  m_Lens:
+    FieldOfView: 61
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+  m_ComponentOwner: {fileID: 374897970}
 --- !u!1 &1627893349
 GameObject:
   m_ObjectHideFlags: 0
@@ -9333,13 +9492,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1627893350}
+  t: {fileID: 1693218505}
   g:
   - {fileID: 1287560641}
   - {fileID: 1611062462}
   m: []
   angle_check:
-  - 0
+  - 90
+  - 270
   angle: 000000005a000000b40000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
@@ -9355,7 +9515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!1 &1653699942
@@ -9504,7 +9663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1693218501
@@ -9722,7 +9880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1716581882
@@ -9736,14 +9893,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 441022358}
   g:
   - {fileID: 1402121154}
   m: []
   angle_check:
-  - 0
   - 180
-  angle: 00000000
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -9977,7 +10133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1747039190
@@ -9991,14 +10146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 1125795982}
   g:
   - {fileID: 1629941056}
   m: []
   angle_check:
   - 0
   - 180
-  angle: 00000000
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -10177,7 +10332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1774522352
@@ -10191,14 +10345,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 459195005}
+  t: {fileID: 1410245212}
   g:
   - {fileID: 900016758}
   m: []
   angle_check:
-  - 0
-  - 180
-  angle: 00000000
+  - 270
+  angle: 00000000b4000000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
   speed: 0.5
@@ -10453,13 +10606,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1627893350}
+  t: {fileID: 459195005}
   g:
   - {fileID: 2090196136}
   - {fileID: 2083922542}
   m: []
   angle_check:
-  - 0
+  - 90
+  - 270
   angle: 000000005a000000b40000000e010000
   startColor: {r: 0, g: 0, b: 0, a: 0}
   endColor: {r: 0.92585087, g: 1, b: 0, a: 1}
@@ -10475,7 +10629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!65 &1813612176
@@ -11052,8 +11205,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934168446}
-  m_LocalRotation: {x: 0.0000005366312, y: 0.9998414, z: -0.000030129811, w: 0.017810436}
-  m_LocalPosition: {x: -4.441743, y: 2.4777393, z: 11.879944}
+  m_LocalRotation: {x: 0.00007824854, y: 0.9999075, z: -0.0119135855, w: 0.0065674013}
+  m_LocalPosition: {x: -4.0828977, y: 2.904747, z: 10.9369755}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1565981512}
@@ -11148,7 +11301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8306c6c4abde374aaf4b08f745851aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_speed: 0
   slow_factor: 15
   angle: 0
 --- !u!114 &1954897723
@@ -11162,7 +11314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc32db910755d947bd6bdfa46a80261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: {fileID: 1643755821}
+  t: {fileID: 1813612173}
   g:
   - {fileID: 114268631}
   - {fileID: 114268630}

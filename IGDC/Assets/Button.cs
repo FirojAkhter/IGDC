@@ -19,13 +19,7 @@ public class Button : MonoBehaviour {
     private GameObject v_cam;
     
    public  bool persist;
-    public Vector3 v_cam_pos;
-    public Vector3 v_cam_rot;
-    [SerializeField,Header("MainCam")]
-    public Vector3 main_cam_pos;
-    Quaternion main_cam_rot;
-    public float lerp_speed;
-    public float rot_lerp;
+   
     private void Start()
     {
         pressed = true;
@@ -49,32 +43,29 @@ public class Button : MonoBehaviour {
      
       if(enter && Input.GetKeyDown(KeyCode.E) && !pressed)
         {
-            StartCoroutine(Lerpcam());
+            
             Debug.Log("Exiting Play Scene");
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            v_cam.SetActive(false);
-            disable.SetActive(true); 
+          //  v_cam.SetActive(false);
+           // disable.SetActive(true); 
             pressed = true;
+            pd.Resume();
        
         }
         else if (enter && Input.GetKeyDown(KeyCode.E) && pressed && persist)
         {
           
 
-            v_cam.SetActive(true);
+            //v_cam.SetActive(true);
             Debug.Log("Play Scene");
             pd.Play();
             persist = false;
-            disable.SetActive(false);
-            main_cam_pos = disable.transform.position;
-          main_cam_rot = disable.transform.rotation;
-           StopAllCoroutines();
-           disable.transform.position = v_cam_pos;
-           disable.transform.rotation = Quaternion.Euler(v_cam_rot);
+           // disable.SetActive(false);
+       
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Invoke("TurnOffPlayer", 2f);
+            Invoke("TurnOffPlayer", 3f);
             
         }
 
@@ -91,19 +82,8 @@ public class Button : MonoBehaviour {
     {
         pressed = false;
         persist = true;
-       // v_cam.SetActive(false);
-        
+        // v_cam.SetActive(false);
+        pd.Pause();
     }
 
-    IEnumerator Lerpcam()
-    {
-       
-       while(persist == true)
-        {
-            Debug.Log("Lerping");
-            disable.transform.position = Vector3.Lerp(disable.transform.position, main_cam_pos, lerp_speed * Time.deltaTime);
-            disable.transform.rotation = Quaternion.Slerp(disable.transform.rotation, main_cam_rot, rot_lerp * Time.deltaTime);
-            yield return null;
-        }
-    }
 }

@@ -5,44 +5,52 @@ using UnityEngine;
 public class PillarRot : MonoBehaviour {
 
 	public List<GameObject> gb;
-	private bool counter=true;
+    [SerializeField]
+    private float slow_factor;
+    public float angle;
+    private float last_angle;
+    bool clicked;
 
-	void OnTriggerStay(Collider col)
+    void OnTriggerStay(Collider col)
 	{
 		Debug.Log ("Aya");
 		if (col.tag == "Player")
 			Debug.Log (col.gameObject.name);
 
-		if (Input.GetKeyDown (KeyCode.E) && counter) 
+		if (Input.GetKeyDown (KeyCode.E) ) 
 		{
-			Debug.Log ("E Pressed.");
-			//obj.transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler(new Vector3(90f,transform.rotation.y,transform.rotation.z)), Time.time*0.1f);
-			//StartCoroutine(Rot());
-			counter=false;
-			StartCoroutine (Rotate (Vector3.up, 90, 1));
+            if (!clicked)
+            {
+                clicked = true;
+                 Debug.Log("Entering");
+                //  transform.RotateAround (transform.position,Vector3.forward, 90 );
+                StartCoroutine(Rotate());
+            }
 
 
-		}
+        }
 	}
 
-	IEnumerator Rotate( Vector3 axis, float angle, float duration = 1.0f)
-	{
-		foreach (GameObject i in gb) {
-			Quaternion from = i.transform.rotation;
-			Quaternion to = i.transform.rotation;
-			to *= Quaternion.Euler (axis * angle);
+    IEnumerator Rotate()
+    {
+        foreach (GameObject g in gb)
+        {
+            angle = 0;
+            last_angle = 0;
+            while (angle < 90)
+            {
+                last_angle = angle;
+                angle += slow_factor;
+                float rot = angle - last_angle;
+                
+                g.transform.RotateAround(g.transform.position, Vector3.up, rot);
 
-
-			float elapsed = 0.0f;
-			while (elapsed < duration) {
-				i.transform.rotation = Quaternion.Slerp (from, to, elapsed / duration);
-				elapsed += Time.deltaTime;
-				yield return null;
-				if (elapsed / duration >= 1f) {
-					counter = true;
-				}
-			}
-			transform.rotation = to;
-		}
-	}
+                Debug.Log("Rotating");
+                yield return new WaitForSeconds(Time.deltaTime);
+            }
+            
+        }
+        clicked = false;
+    }
 }
+
