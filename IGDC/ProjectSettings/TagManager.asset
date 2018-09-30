@@ -10,6 +10,8 @@ TagManager:
   - pole
   - Generator
   - ActivePole
+  - RightOne
+  - GlowOne
   layers:
   - Default
   - TransparentFX

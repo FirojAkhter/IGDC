@@ -20,6 +20,7 @@ public class Puzzle_2 : MonoBehaviour {
 			col.gameObject.GetComponent<BoxCollider> ().enabled = false;
 			index++;
 		} else {
+            Debug.Log("leavingdawdw Button");
 			sl.Reset ();
 			index = 1;
 		}

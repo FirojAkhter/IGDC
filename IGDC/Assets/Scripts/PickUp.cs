@@ -23,13 +23,14 @@ public class PickUp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
        
-        Debug.DrawRay(transform.position, transform.forward * ray_size, Color.green);
-        if (Physics.Raycast(transform.position, transform.forward , out hit,ray_size,lm) && !picked)
+        Debug.DrawRay(transform.position + new Vector3(0, 1, 0), transform.forward * ray_size, Color.black);
+        if (Physics.Raycast(transform.position+new Vector3(0,1,0), transform.forward , out hit,ray_size,lm) && !picked)
         {
-            if(Input.GetKeyDown(KeyCode.E) )
+         //   Debug.Log("Entering Pick");
+            if (Input.GetKeyDown(KeyCode.E) )
             {
                 t = hit.collider.transform.gameObject;
-               Debug.Log("Entering Pick");
+            //   Debug.Log("Entering Pick");
                 hit.transform.GetComponent<Rigidbody>().isKinematic = true;
                 hit.transform.GetComponent<PlaceInGrid>().placed = false;
                 hit.transform.tag = "pole";

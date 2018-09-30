@@ -16,7 +16,7 @@ public class PlaceInGrid : MonoBehaviour {
     private MeshRenderer m_r;
    public bool active;
    public bool placed;
-    static bool generated;
+  public  static bool generated;
    // static int checks = 0;
     public LayerMask lm_col;
     public float radius;
@@ -54,15 +54,15 @@ public class PlaceInGrid : MonoBehaviour {
             {
                 foreach (Collider cl in c)
                 {
-                    if (cl.tag == "Generator")
-                    {
-                        generated = true;
-                        active = true;
-                        transform.tag = "ActivePole";
-                       // checks++;
+                  //  if (cl.tag == "Generator")
+                  //  {
+                   //     generated = true;
+                  //      active = true;
+                  //      transform.tag = "ActivePole";
+                        // checks++;
 
-                    }
-                  
+                  //  }
+
 
                     Debug.Log(cl.tag);
                     if (cl.tag == "ActivePole")
@@ -80,8 +80,11 @@ public class PlaceInGrid : MonoBehaviour {
                 }
             }
         }
-        else
-            generated = false;
+      //  else
+       // {
+       //     generated = false;
+       //     Debug.Log(generated);
+       // }
 
         if (active && placed && transform.tag == "ActivePole" && generated )
         {
@@ -118,7 +121,7 @@ public class PlaceInGrid : MonoBehaviour {
         t = h.transform;
         Vector3 pos = new Vector3(h.transform.position.x, transform.position.y, h.transform.position.z);
         transform.position = pos;
-        
+        Debug.Log("Entering Action2");
         rb.isKinematic = false;
         rb.useGravity = true;
         yield return new WaitForSeconds(0.25f);

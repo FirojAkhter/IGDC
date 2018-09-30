@@ -22,6 +22,10 @@ public class CameraCollision : MonoBehaviour {
     Camera cam;
     [SerializeField]
     float angle;
+    [SerializeField]
+    private LayerMask _lm;
+    [SerializeField]
+    private float _angle;
    
     // Use this for initialization
     void Start () {
@@ -29,7 +33,7 @@ public class CameraCollision : MonoBehaviour {
         dollyDir = transform.localPosition.normalized;
         distance = transform.localPosition.magnitude;
         c_z =cam.nearClipPlane;
-        c_x = Mathf.Tan(cam.fieldOfView / 4.48f) * c_z;
+        c_x = Mathf.Tan(cam.fieldOfView / _angle) * c_z;
         c_y = c_x / cam.aspect;
        v_c_z = cam.nearClipPlane;
        v_c_x = Mathf.Tan(cam.fieldOfView / angle) * v_c_z;
@@ -40,21 +44,21 @@ public class CameraCollision : MonoBehaviour {
  
     void Update () {
       //  distance = maxDistance;
-        CalculateClippingPoints(cam.transform.position, transform.parent.localRotation, ref clip_points);
+        CalculateClippingPoints(cam.transform.position, transform.parent.rotation, ref clip_points);
 
-        CalculateVirtualClippingPoints(cam.transform.position-(cam.transform.forward *0.1f), transform.parent.localRotation, ref virtual_clip_points);
+        CalculateVirtualClippingPoints(cam.transform.position-(cam.transform.forward*1), transform.parent.rotation, ref virtual_clip_points);
         Drawrays(transform.parent.position,ref clip_points,Color.green);
         Drawrays(transform.parent.position, ref virtual_clip_points,Color.red);
         // Vector3 desiredCameraPos = transform.parent.TransformPoint(dollyDir * maxDistance);
 
-        if (castRayToClips(transform.parent.position, hit,clip_points))
+        if (castRayToClips(transform.parent.position, hit,clip_points,_lm))
         {
             distance = GetDistance(transform.parent.position);
            //distance = Mathf.Clamp(distance, minDistance, maxDistance);
         
            
         }
-        else if(castRayToClips(transform.parent.position,hit,virtual_clip_points) && distance != maxDistance)
+        else if(castRayToClips(transform.parent.position,hit,virtual_clip_points,_lm) && distance != maxDistance)
        {
             Debug.Log(" Colliding");
             
@@ -86,13 +90,13 @@ public class CameraCollision : MonoBehaviour {
         ar[4] = pos + rot * new Vector3(v_c_x, -v_c_y, v_c_z);
     }
 
-    bool castRayToClips(Vector3 target,RaycastHit h , Vector3[] ar)
+    bool castRayToClips(Vector3 target,RaycastHit h , Vector3[] ar,LayerMask lm)
     {
        
         for(int i = 0;i<ar.Length;i++)
         {
             //Vector3 dir = (clip_points[i] - target).normalized;
-            if (Physics.Linecast(target, ar[i],out h))
+            if (Physics.Linecast(target, ar[i],out h,lm))
                 return true;
         }
         return false;

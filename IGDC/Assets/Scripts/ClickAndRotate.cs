@@ -20,12 +20,13 @@ public class ClickAndRotate : MonoBehaviour {
         if (!clicked)
         {
             clicked = true;
-            Debug.Log("Entering");
+           // Debug.Log("Entering");
             //  transform.RotateAround (transform.position,Vector3.forward, 90 );
             StartCoroutine(Rotate());
         }
         
 	}
+   
 
 
 
