@@ -11,8 +11,9 @@ public class Solver : MonoBehaviour {
 	{
 		foreach (GameObject i in gb) 
 		{
-			i.GetComponent<BoxCollider> ().enabled = true;
+			i.GetComponent<MeshCollider> ().enabled = true;
 			i.GetComponent<MeshRenderer> ().material = def;
+            
 		}
 	}
 }

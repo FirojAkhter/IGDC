@@ -10,8 +10,9 @@ public class PlayerMovement : MonoBehaviour {
 	public Material changer;
 	public static int index=1;
 	public Solver sl;
-    
-
+    [SerializeField]
+    private UnityEngine.Playables.PlayableDirector pd;
+    int counter = 0;
  
     [SerializeField]
     private float rot_speed;
@@ -92,7 +93,14 @@ public class PlayerMovement : MonoBehaviour {
         #endregion imp1
     }
 
-
+    private void Update()
+    {
+        if(index== 6 && counter == 0)
+        {
+            pd.Play();
+            counter++;
+        }
+    }
     Vector3  createvector(float angle , Vector3 v)
     {
       Vector3 ans = new Vector3(v.x * Mathf.Cos(angle) + v.z * Mathf.Sin(angle ), 0, -1 * v.x * Mathf.Sin(angle ) + v.z * Mathf.Cos(angle ));
@@ -105,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (col.tag == "Button") {
 			if (col.gameObject.GetComponent<Puzzle> ().number == index) {
 				col.gameObject.GetComponent<MeshRenderer> ().material = changer;
-				col.gameObject.GetComponent<BoxCollider> ().enabled = false;
+				col.gameObject.GetComponent<MeshCollider> ().enabled = false;
 				index++;
 			}
 		 else {

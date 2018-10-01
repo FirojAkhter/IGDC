@@ -489,14 +489,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 202362489}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.213184, y: 2.892767, z: -29.841913}
   m_LocalScale: {x: 4, y: 20, z: 4}
   m_Children:
   - {fileID: 1147880301}
   m_Father: {fileID: 467698535}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &202362491
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -662,14 +662,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 332696545}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.606815, y: 2.892767, z: 4.958086}
   m_LocalScale: {x: 4, y: 20, z: 4}
   m_Children:
   - {fileID: 88193519}
   m_Father: {fileID: 467698535}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377545211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,14 +1875,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1117716730}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: -16.113184, y: 2.892767, z: 4.958086}
   m_LocalScale: {x: 4, y: 20, z: 4}
   m_Children:
   - {fileID: 377545212}
   m_Father: {fileID: 467698535}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!136 &1117716732
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2359,8 +2359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f81d2831f42bd8542ab940ecd598c365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityX: 100
-  sensitivityY: 100
+  sensitivityX: 50
+  sensitivityY: 50
   min_angle: -50
   max_angle: 50
 --- !u!1 &1394373263
@@ -2996,14 +2996,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972972935}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 17.586815, y: 2.892767, z: -29.641912}
   m_LocalScale: {x: 4, y: 20, z: 4}
   m_Children:
   - {fileID: 61830871}
   m_Father: {fileID: 467698535}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!136 &1972972937
 CapsuleCollider:
   m_ObjectHideFlags: 0
