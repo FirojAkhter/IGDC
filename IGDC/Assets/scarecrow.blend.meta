@@ -1,16 +1,36 @@
 fileFormatVersion: 2
-guid: a86147adac72cd04fa1f3bdf81b454c1
+guid: b30325acd3ebdd642ab73d75d5ed76aa
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: default
-    400000: //RootNode
-    400002: default
-    2100000: None
-    2300000: default
-    3300000: default
-    4300000: default
+    100000: Cloth
+    100002: Hat_m
+    100004: LeftHand
+    100006: RightHand
+    100008: //RootNode
+    400000: Cloth
+    400002: Hat_m
+    400004: LeftHand
+    400006: RightHand
+    400008: //RootNode
+    2100000: Mat
+    2300000: Cloth
+    2300002: Hat_m
+    2300004: LeftHand
+    2300006: RightHand
+    2300008: //RootNode
+    3300000: Cloth
+    3300002: Hat_m
+    3300004: LeftHand
+    3300006: RightHand
+    3300008: //RootNode
+    4300000: Base
+    4300002: LeftHand
+    4300004: RightHand
+    4300006: Hat_m
+    4300008: Cloth
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -63,7 +83,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -88,7 +108,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
